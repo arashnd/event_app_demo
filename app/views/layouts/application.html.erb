@@ -8,6 +8,22 @@
 </head>
 <body>
 
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="top-container">
+        <!-- LOGO -->
+        <%= link_to image_tag("logo.png", alt: "EventApp"), root_path %>
+
+      </div>
+    </div>
+  </header>
+
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 <%= yield %>
 
 </body>

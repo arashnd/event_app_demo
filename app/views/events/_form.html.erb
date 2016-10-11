@@ -1,0 +1,27 @@
+<%= form_for @event do |f| %>
+  <div class="">
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="">
+    <%= f.label :description %> <br>
+    <%= f.text_area :description, size: "60x20" %>
+  </div>
+  <div class="">
+    <%= f.label :vanue %> <br>
+    <%= f.text_field :venue %>
+  </div>
+  <div class="">
+    <%= f.label :seats, "Available Seats" %><br>
+    <%= f.text_field :seats %>
+  </div>
+  <div class="">
+    <%= f.label :date_time %><br>
+    <%= f.datetime_select :date_time %>
+  </div>
+  <div class="">
+    <p>
+      <%= f.submit "Post Event"  %>
+    </p>
+  </div>
+<% end %>
