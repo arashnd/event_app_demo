@@ -3,6 +3,9 @@
 <head>
   <title>EventApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,33 +14,38 @@
   <!-- HEADER -->
   <header>
     <div class="container">
-      <div class="top-container">
         <!-- LOGO -->
-        <%= link_to image_tag("logo.png", alt: "EventApp"), root_path %>
+        <%= link_to "EventApp", root_path, class: "logo"%>
         <!-- MENU -->
         <nav>
           <ul>
             <% if user_signed_in? %>
+              <li><%= link_to "Create Event", new_event_path %></li>
               <li><%= link_to "All Events", events_path %></li>
               <li><a href="#">Going</a></li>
-              <li><a href="#">My Events</a></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "My events", controller: 'events', action: 'index', events: :myevents %></li>
+              <span class="">
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              </span>
             <% else %>
-              <li><%= link_to "Register", new_user_registration_path %></li>
-              <li><%= link_to "Login", new_user_session_path %></li>
+                <li><%= link_to "Register", new_user_registration_path %></li>
+                <li></i> <%= link_to "Login", new_user_session_path, id: "login" %></li>
             <% end %>
           </ul>
         </nav>
-      </div>
     </div>
   </header>
 
-  <% if flash[:notice] %>
-    <div class="flash">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-<%= yield %>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
+  <div class="content">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

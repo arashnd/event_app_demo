@@ -3,18 +3,22 @@ class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :destroy, :update]
 
   def index
-    @events = Event.all
+    if params[:events]
+      @events = current_user.events
+    else
+      @events = Event.all
+    end
   end
 
   def show
   end
 
   def new
-    @event = Event.new
+    @event = current_user.events.new
   end
 
   def create
-    event = Event.new(event_params)
+    event = current_user.events.new(event_params)
 
     if event.save
       flash[:notice] = "New event created sucessfully."
@@ -25,7 +29,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

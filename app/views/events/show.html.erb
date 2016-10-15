@@ -5,10 +5,13 @@
   <li>Location : <%= @event.venue %></li>
   <li>Seats Available : <%= @event.seats %></li>
   <li>Date & Time : <%= @event.date_time %></li>
+  <li>Organized By : <%= @event.user.email %></li>
 </ul>
 
 <ul>
-  <li><%= link_to "Edit", edit_event_path(@event) %></li>
-  <li><%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <% if owner? %>
+    <li><%= link_to "Edit", edit_event_path(@event) %></li>
+    <li><%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <% end %>
   <li><%= link_to "Back to events", events_path %></li>
 </ul>
