@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :events
+  resources :events do
+    get :register, on: :member
+    get :unregister, on: :member
+  end
+
 
   root to: "events#index"
 

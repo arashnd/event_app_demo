@@ -1,10 +1,12 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :get_event, only: [:show, :edit, :destroy, :update]
+  before_action :get_event, only: [:show, :edit, :destroy, :update, :register, :unregister]
 
   def index
     if params[:events]
       @events = current_user.events
+    elsif params[:going]
+      @events = current_user.booked_events
     else
       @events = Event.all
     end
@@ -45,6 +47,15 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def register
+    current_user.booked_events << @event
+    redirect_to :back
+  end
+
+  def unregister
+    Registration.destroy_all(event_id: @event, user_id: current_user)
+    redirect_to :back
+  end
 
   private
     def get_event
