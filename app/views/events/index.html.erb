@@ -1,9 +1,49 @@
-<h2>Events</h2>
+<% if params[:events] %>
+  <div class="events-table container">
+    <h2>Manage events</h2>
+    <table>
+      <tr>
+        <th>S.No</th>
+        <th>Eevent</th>
+        <th>Location</th>
+        <th>Seats</th>
+        <th>Date & Time</th>
+        <th>Delete</th>
+      </tr>
+        <% i = 0 %>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= i += 1 %></td>
+          <td><%= link_to event.name, event %></td>
+          <td><%= event.venue %></td>
+          <td><%= event.seats %></td>
+          <td><%= event.date_time %></td>
+          <td><%= link_to "Delete", event, method: :delete, data: { confirm: "Are you sure?" }, class: "delete" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
-<% @events.each do |event| %>
-  <ul>
-    <li><%= link_to event.name, event %></li>
-    <li>Location : <%= event.venue %></li>
-    <li>Date & Time : <%= event.date_time %></li>
-  </ul>
+<% elsif params[:going] %>
+  <h2 class="events cd-container">Events you're registered in</h2>
+<% else %>
+  <h2 class="events cd-container">Events</h2>
+  <section id="cd-timeline" class="cd-container">
+    <% @events.each do |event| %>
+      <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+          <%= Time.now.month %>
+        </div>
+
+        <div class="cd-timeline-content">
+          <h2><%= event.name %></h2>
+          <p>Location : <%= event.venue %></p>
+          <p>Seats : <%= event.seats %></p>
+          <p>Date & Time : <%= event.date_time.strftime("%b") %></p>
+          <%= link_to "Details", event, class: "cd-register" %>
+          <span class="cd-date"><%= event.venue %></span>
+        </div>
+      </div>
+    <% end %>
+  </section>
 <% end %>
