@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :registrations
   has_many :booked_events, through: :registrations
+
+  mount_uploader :avatar, AvatarUploader
 end

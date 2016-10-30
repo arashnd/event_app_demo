@@ -1,11 +1,13 @@
 <div class="event-show">
     <h2><%= @event.name %></h2>
+    <p><%= @event.description %></p>
+    <p>Organized by: <%= "#{@event.user.first_name}" +" "+ "#{@event.user.last_name}"  %></p>
     <% if registered? %>
       <p><%= link_to "Unregister!", unregister_event_path(@event), class: "btn btn-red" %></p>
     <% elsif user_signed_in? %>
       <%= link_to "Register for this event", register_event_path(@event), class: "btn btn-green" %>
     <% else %>
-      <%= link_to "Sign in to participate", new_user_session_path %>
+      <%= link_to "Sign in to participate", new_user_session_path,class: "btn btn-green" %>
     <% end %>
     <ul>
       <% if owner? %>

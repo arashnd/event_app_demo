@@ -5,9 +5,13 @@
     <h2>Edit Profile</h2>
   <% end %>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: :true }) do |f| %>
     <%= devise_error_messages! %>
-
+    <%= image_tag(current_user.avatar.large.url, class: "avatar-profile") if current_user.avatar? %>
+    <div class="field-avatar">
+      <%= f.label :avatar, "Change Picture" %>
+      <%= f.file_field :avatar %>
+    </div>
     <div class="field">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name, autofocus: true %>
