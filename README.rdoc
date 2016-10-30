@@ -1,9 +1,11 @@
 This app is not complete its still in progress
 
 Simple Event Application
--> Sign Up to post and participate in an event
--> Post an event so that registered users can participate in it.
--> Manage events.
+
+
+Sign Up to post and participate in an event
+Post an event so that registered users can participate in it.
+Manage events.
 
 
 devise
