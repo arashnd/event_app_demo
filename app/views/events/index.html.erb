@@ -38,9 +38,9 @@
           <h2><%= event.name %></h2>
           <p>Location : <%= event.venue %></p>
           <p>Seats : <%= event.seats %></p>
-          <p>Date & Time : <%= event.date_time.strftime("%b") %></p>
+          <p>Date & Time : <%= event.date_time.strftime("%d, %b %Y, %T") %></p>
           <%= link_to "Details", event, class: "cd-register" %>
-          <span class="cd-date"><%= event.date_time.strftime("%A, %b %d") %></span>
+          <span class="cd-date"><%= event.date_time.strftime("%A, %b %Y") %></span>
         </div>
       </div>
     <% end %>
