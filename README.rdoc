@@ -1,28 +1,11 @@
-== README
+This app is not complete its still in progress
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Simple Event Application
+-> Sign Up to post and participate in an event
+-> Post an event so that registered users can participate in it.
+-> Manage events.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+devise
+sass
+carrierwave
