@@ -4,10 +4,16 @@ Simple Event Application
 
 
 Sign Up to post and participate in an event
+
+
 Post an event so that registered users can participate in it.
+
+
 Manage events.
 
 
 devise
+
 sass
+
 carrierwave
