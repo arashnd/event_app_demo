@@ -48,6 +48,7 @@ gem 'devise'
 gem 'bourbon', '~> 4.2', '>= 4.2.6'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'carrierwave', '~> 0.10.0'
+gem 'cloudinary'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 group :development do

@@ -1,0 +1,10 @@
+development:
+  cloud_name: "dtrmoodjj"
+  api_key: "797695717949162"
+  api_secret: "V_U5RgTq21nuhIvTmNaXTivqFTM"
+
+
+production:
+  cloud_name: "dtrmoodjj"
+  api_key: "797695717949162"
+  api_secret: "V_U5RgTq21nuhIvTmNaXTivqFTM"
